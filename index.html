@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <title>大屏可视化项目</title>  
+  <script>
+    const clientWidth = document.documentElement.clientWidth
+    const clientHeight = document.documentElement.clientHeight
+    const PageWidth = clientHeight / clientWidth > 9/16 ?  clientWidth  : clientHeight * (16/9)
+    const PageHeight = PageWidth * (9/16)
+    const string = `<style>html{
+      font-size:${PageWidth / 100}px
+      }</style>`
+    document.write(string)
+    </script>
+ 
+</head>
+<body>
+<div id="root"></div>
+<script>
+  root.style.width = PageWidth + 'px';
+  root.style.height = PageHeight + 'px';
+  root.style.marginTop = (clientHeight - PageHeight)/2 + 'px';
+</script>
+<script type="module" src="/src/main.tsx">
+
+</script>
+</body>
+</html>
