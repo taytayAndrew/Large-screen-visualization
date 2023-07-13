@@ -1,0 +1,23 @@
+{
+  "id": "4165477",
+  "name": "大屏可视化",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4188889",
+      "name": "weather_1晴",
+      "font_class": "weather",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "36427066",
+      "name": "weather_1晴-copy",
+      "font_class": "weather_qing-copy",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    }
+  ]
+}

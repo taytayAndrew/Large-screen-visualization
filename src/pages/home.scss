@@ -1,13 +1,52 @@
 @import "../shared/helper";
-
+.icon {
+  width: px(2); 
+  height: px(2);
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
 .home{
     flex:1;
+    height: 100%;
     display:flex;
     flex-direction: column;
     background-color: #010310;
+    color: white;
    >header{
-    height: px(99);
-    background-size: cover;
+    display: flex;
+    height: px(100);
+    background-color: #00013a;
+    >.title {
+      flex: 1;
+      background-repeat: no-repeat;
+      background-size: cover;
+      flex-grow: 1;
+      background-position: center;
+    }
+    >.time{
+      display: flex;
+      flex-direction: column;
+      padding-top: px(25);
+      width: px(200);
+      flex-shrink: 1;
+      color: #1f619a;
+      text-align: center;
+      align-items: center;
+      font-size: px(25);
+      justify-content: center;
+
+    }
+    >.weather{
+      display: flex;
+      color: #1f619a;
+      text-align: center;
+      align-items: center;
+      font-size: px(25);
+      justify-content: center;
+      width: px(200);
+
+    }
    } 
    >main{
     padding-top: px(18);
@@ -18,13 +57,14 @@
     "box3 box3 box4 box5" 363fr / 366fr 361fr 811fr 747fr;
     grid-column-gap: px(28);
     grid-row-gap: px(28);
-    >section {
+    >section {}
+
+    .border{
         border: 1px solid #0764bc;
         border-radius: 4px;
         position: relative;
         box-shadow: 0 0 2px 0 #0e325f, inset 0 0 2px 0 #0e325f;
         background: #0c1139;
-
         &::before{
             content:''; //一定要写content为''
             top: 0;
@@ -41,9 +81,7 @@
             9px 0 0 -8px #0d4483,
             -9px 0 0 -8px #0d4483,
             0 9px 0 -8px #0d4483,
-            0 -9px 0 -8px #0d4483,;
-
-
+            0 -9px 0 -8px #0d4483,
         }
     }
     >.section1 {
@@ -66,6 +104,6 @@
         grid-area: box5;
 
       }
-
+    
    }
 }
