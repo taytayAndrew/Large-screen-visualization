@@ -9,7 +9,7 @@
   <script>
     const clientWidth = document.documentElement.clientWidth
     const clientHeight = document.documentElement.clientHeight
-    const PageWidth = clientHeight / clientWidth > 9/16 ?  clientWidth  : clientHeight * (16/9)
+    window.PageWidth = clientHeight / clientWidth > 9/16 ?  clientWidth  : clientHeight * (16/9)
     const PageHeight = PageWidth * (9/16)
     const string = `<style>html{
       font-size:${PageWidth / 100}px
