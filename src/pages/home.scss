@@ -88,14 +88,16 @@
             0 -9px 0 -8px #0d4483,
         }
     }
-    >.section1 {
+    .section1 {
         grid-area: box1;
-        >.infoTotal {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        >.infoTotal,.billsTotal {
           height: px(315);
           display: flex;
           flex-direction: column;
           align-items: center;
-          flex-direction: column;
           h2{
             flex-shrink: 0;
             border: 1px solid #0a5299;
@@ -112,6 +114,11 @@
             border: red ;
           }
         }
+       
+        >.billsTotal {
+          height: px(450);
+        }
+        
 
     }
     > .section2 {
