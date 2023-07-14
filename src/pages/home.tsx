@@ -2,8 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import './home.scss';
 import imgBg from '../img/header.png'
 import '../assets/iconfont/iconfont.js'
-import { Chart_1 } from '../components/chart_1';
-import { Chart_2 } from '../components/chart_2';
+import { Chart_1 } from '../component/chart_1';
+import { Chart_2 } from '../component/chart_2'
+import { Chart_3 } from '../component/chart_3';
+import { Chart_4 } from '../component/chart_4';
 
 const updateDateTime = () => {
   const now = new Date();
@@ -37,8 +39,9 @@ export const Home = () => {
           <Chart_1 />
           <Chart_2 />
         </section>
-        <section className="border section2">
-
+        <section className=" section2">
+          <Chart_3 />
+          <Chart_4 />
         </section>
         <section className="border section3"></section>
         <section className="border section4"></section>

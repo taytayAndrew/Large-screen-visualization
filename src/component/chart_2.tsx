@@ -15,8 +15,6 @@ export const Chart_2 = () =>{
                 trigger: 'axis',
                 axisPointer: {
                  type: 'none'
-  
-                  
                 },
     
               },
