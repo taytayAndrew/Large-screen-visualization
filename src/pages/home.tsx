@@ -11,8 +11,7 @@ const updateDateTime = () => {
   document.getElementById('date').innerHTML = now.toDateString()
 }
 export const Home = () => {
-
-
+  const year = new Date().getFullYear();
  useEffect(() => 
   {
     setInterval(updateDateTime, 1000);
@@ -45,6 +44,9 @@ export const Home = () => {
         <section className="border section4"></section>
         <section className="border section5"></section>
       </main>
+      <footer>
+        &copy; fishy 2020-{year}
+      </footer>
     </div>
     
   );

@@ -11,10 +11,21 @@
     flex-direction: column;
     background-color: #010310;
     color: white;
+   >footer {
+    height: px(68);
+    display: flex;
+    border: 1px solid #0d2d59;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background: #0c0d2b;
+   }
    >header{
     display: flex;
     height: px(100);
     background-color: #00013a;
+    width: px(2420);
+    margin: 0 auto;
     >.title {
       flex: 1;
       background-repeat: no-repeat;
@@ -52,6 +63,8 @@
    >main{
     padding-top: px(18);
     flex:1;
+    width: px(2420);
+    margin: 0 auto;
     display: grid;
     grid-template:
     "box1 box2 box4 box5" 755fr
@@ -59,8 +72,6 @@
     grid-column-gap: px(28);
     grid-row-gap: px(28);
     >section {
-
-     
     }
 
     .border{
