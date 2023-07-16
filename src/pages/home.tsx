@@ -6,6 +6,12 @@ import { Chart_1 } from '../component/chart_1';
 import { Chart_2 } from '../component/chart_2'
 import { Chart_3 } from '../component/chart_3';
 import { Chart_4 } from '../component/chart_4';
+import { Chart_5 } from '../component/chart_5';
+import { Chart_6 } from '../component/chart_6';
+import { NumberBox } from '../component/numberbox';
+import { Chart_7 } from '../component/chart_7';
+import { Chart_9 } from '../component/chart_9';
+import { Chart_8 } from '../component/chart_8';
 
 const updateDateTime = () => {
   const now = new Date();
@@ -36,16 +42,25 @@ export const Home = () => {
       </header>
       <main>
         <section className=" section1">
-          <Chart_1 />
           <Chart_2 />
+          <Chart_3 />
         </section>
         <section className=" section2">
-          <Chart_3 />
+          <Chart_1 />
           <Chart_4 />
         </section>
-        <section className="border section3"></section>
-        <section className="border section4"></section>
-        <section className="border section5"></section>
+        <section className="border section3">
+          <Chart_5 />
+        </section>
+        <section className=" section4">
+          <NumberBox />
+          <Chart_6 />
+        </section>
+        <section className=" section5">
+          <Chart_7 />
+          <Chart_9 /> 
+          <Chart_8 />
+        </section>
       </main>
       <footer>
         &copy; fishy 2020-{year}
@@ -54,3 +69,5 @@ export const Home = () => {
     
   );
 };
+
+

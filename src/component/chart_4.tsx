@@ -32,9 +32,22 @@ export const Chart_4 = () =>{
         {
           data: [820, 932, 901, 934, 1290, 1330, 1320],
           type: 'line',
-          areaStyle: {}
+          areaStyle: {
+            color:new echarts.graphic.LinearGradient(0,0,0,1,[{
+              offset:0,
+              color:'#414a9f'
+            },{
+              offset:1,
+              color:'#1b1d52'
+            }])
+          }
         }
-      ]
+      ].map(obj => ({
+        ...obj,
+        symbol:'circle',
+        symbolSize:px(12),
+        lineStyle:{width:px(2)}
+      }))
 
     
       

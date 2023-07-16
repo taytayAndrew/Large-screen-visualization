@@ -72,6 +72,20 @@
     grid-column-gap: px(28);
     grid-row-gap: px(28);
     >section {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      h2{
+        flex-shrink: 0;
+        border: 1px solid #0a5299;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        font-size: px(22);
+        line-height: px(24);
+        padding: px(10) px(28);
+        text-shadow: 0 0 px(15) white;
+        
+      }
     }
 
     .border{
@@ -79,7 +93,7 @@
         border-radius: 4px;
         position: relative;
         box-shadow: 0 0 2px 0 #0e325f, inset 0 0 2px 0 #0e325f;
-        background: #0c1139;
+        background: #0f113a;
         &::before{
             content:''; //一定要写content为''
             top: 0;
@@ -101,81 +115,112 @@
     }
     .section1 {
         grid-area: box1;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        >.infoTotal,.billsTotal {
-          height: px(315);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          h2{
-            flex-shrink: 0;
-            border: 1px solid #0a5299;
-            border-bottom-left-radius: 4px;
-            border-bottom-right-radius: 4px;
-            font-size: px(22);
-            line-height: px(24);
-            padding: px(10) px(28);
-            text-shadow: 0 0 px(3) white;
-          }
-          >.chart {
-            flex: 1;
-            width: 100% ;
-            border: red ;
-          }
+        >.soldTotal,.billsTotal {
+          height: px(360);
         }
-
         >.billsTotal {
-          height: px(420);
+          height: px(400);
         }
-        
-
+      
     }
     > .section2 {
         grid-area: box2;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        >.soldTotal,.soldMonthTotal{
-          height: px(380);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          h2{
-            flex-shrink: 0;
-            border: 1px solid #0a5299;
-            border-bottom-left-radius: 4px;
-            border-bottom-right-radius: 4px;
-            font-size: px(22);
-            line-height: px(24);
-            padding: px(10) px(28);
-            text-shadow: 0 0 px(3) white;
-          }
-          >.chart {
-            flex: 1;
-            width: 100% ;
-            border: red ;
-          }
+        >.infoTotal,.soldMonthTotal{
+          height: px(420);
         }
 
-        >.soldMonthTotal{
-          height: px(350);
-
+        >.infoTotal{
+          height: px(330);
         }
        
       }
       > .section3 {
         grid-area: box3;
+        >.topInfo {
+          height: px(370);
+        }
 
       }
       > .section4 {
         grid-area: box4;
+        justify-content:space-around;
+        h2{
+          flex-shrink: 0;
+          border: none;
+          font-size: px(30);
+          line-height: px(24);
+          text-shadow: 0 0 px(15) white;
+          margin: 0 auto;
+          padding-top: px(60);
+          font-weight: bold;
+        }
+        >.numberMainBox{
+          display: flex;
+          height: px(75);
+          margin: px(30);
+          flex-direction: row;
+          gap: px(10);
+          >span{
+            
+            position: relative;
+            >div{
+              position: absolute;
+              bottom: 0;
+              font-weight:900;
+            }
+            
+          }
+          >.numberBox{
+            font-size: px(50);
+            flex: 1;
+            background: #f8af00;
+            border: none;
+            display: flex;
+          
+            >.box{
+              width: 100%;
+              text-align: center;
+              font-weight: 800;
+            }
+   
+          }
+        }
+        >.mapInfo {
+          height: px(753);
+          background: transparent;
+          > .wrapper {
+            position: relative;width: 100%;flex: 1;
+            display: flex; flex-direction: column;
+            .chart {flex: 1;}
+
+          }
+        }
 
       }
       > .section5 {
         grid-area: box5;
+        >.eleTotal {
+          height: px(370);
+          
+        }
+        >.typeTotal {
+          height: px(370);
+          
+        } >.manTotal {
+          height: px(370);
+          
+        }
 
+      }
+       .infoTotal,.soldMonthTotal,.topInfo,.soldTotal,.billsTotal,.mapInfo,.eleTotal,.manTotal,.typeTotal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      
+        >.chart {
+          flex: 1;
+          width: 100% ;
+        }
       }
     
    }

@@ -32,10 +32,10 @@ export const Chart_2 = () =>{
               },
               
               grid: {
-                    x: px(0),
+                    x: px(15),
                     y: px(50),
-                    x2: px(10),
-                    y2: px(60),
+                    x2: px(0),
+                    y2: px(40),
                 
                 containLabel: true
               },

@@ -45,7 +45,8 @@ export const Chart_3 = () =>{
     xAxis: {
       type: 'category',
       boundaryGap: false,
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      axisTick:{show: false}
       
     },
     yAxis: {
@@ -80,7 +81,12 @@ export const Chart_3 = () =>{
         stack: 'Total',
         data: [320, 332, 301, 334, 390, 330, 320]
       },
-      ]
+      ].map(obj => ({
+        ...obj,
+        symbol:'circle',
+        symbolSize:px(12),
+        lineStyle:{width:px(2)}
+      }))
     })
     )},[])
  return (
