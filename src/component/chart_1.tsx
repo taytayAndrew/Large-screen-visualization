@@ -7,9 +7,34 @@ const px = (n) => n/2420 * (window as any).PageWidth
 
 export const Chart_1 = () =>{
     const divRef = useRef(null)
+    const myChart = useRef(null);
+    const data = [
+      {name: '综合业务通过率', 2022: 55, 2023: 98},
+      {name: '银行征信通过率', 2022: 56, 2023: 94},
+      {name: '社会征信通过率', 2022: 40, 2023: 70},
+      {name: '电审通过率', 2022: 32, 2023: 75},
+      {name: '开卡通过率', 2022: 40, 2023: 90},
+      {name:  '综合逾期通过率', 2022: 45, 2023: 80},
+
+    ];
     useEffect(() =>{
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(createEchartOptions({
+      setInterval(() => {
+        const newData = [
+        {name: '新疆地区', 2022: Math.random() * 100, 2023: Math.random() * 10},
+        {name: '兰州地区', 2022: Math.random() * 100, 2023: Math.random() * 10},
+        {name: '河北地区', 2022: Math.random() * 100, 2023: Math.random() * 10},
+        {name: '东北地区', 2022: Math.random() * 100, 2023: Math.random() * 10},
+        {name: '山东地区', 2022: Math.random() * 100, 2023: Math.random() * 10},
+        {name:  '珠三角地区', 2022: Math.random() * 100, 2023: Math.random() *10},
+        {name: '河南地区', 2022: Math.random() * 100, 2023: Math.random() * 10},
+        {name: '湖北地区', 2022: Math.random() * 100, 2023: Math.random() * 10},
+        {name:  '四川地区', 2022: Math.random() * 100, 2023: Math.random() * 10},
+        ];
+        x(newData);
+      }, 2000);
+    }, []);
+    const x = (data) => {
+      myChart.current.setOption(createEchartOptions({
     ...baseChartshare,
       textStyle: {
         fontSize: px(100),
@@ -18,8 +43,7 @@ export const Chart_1 = () =>{
       title: {show: false},
       legend: {show: false},
       xAxis: {
-        data: ['兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区'],
-        axisTick: {show: false},
+        data: data.map(i => i.name),
         axisLine: {
           lineStyle: {color: '#083B70'}
         },
@@ -51,10 +75,14 @@ export const Chart_1 = () =>{
       },
       series: [{
         type: 'bar',
-        data: [10, 20, 36, 41, 15, 26, 37, 18, 29]
+        data: data.map(i => i[2022]),
       }]
     })
-    )},[])
+    )}
+    useEffect(() => {
+      myChart.current = echarts.init(divRef.current);
+      x(data);
+    }, []);
  return (
  
     <div className='border infoTotal'>

@@ -7,9 +7,29 @@ const px = (n) => n/2420 * (window as any).PageWidth
 
 export const Chart_8 = () =>{
     const divRef = useRef(null)
+    const myChart = useRef(null);
+    const data = [
+      { value: 1048, name: '工商业贷款' },
+      { value: 735, name: '农业贷款' },
+      { value: 580, name: '消费者贷款' },
+      { value: 484, name: '活期贷款' },
+      { value: 300, name: '定期贷款' }
+    ];
     useEffect(() =>{
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(createEchartOptions({
+      setInterval(() => {
+        const newData = [
+          { value: parseInt((Math.random() * 1000).toString()), name: '工商业贷款' },
+          { value:parseInt((Math.random() * 1000).toString()), name: '农业贷款' },
+          { value: parseInt((Math.random() * 1000).toString()), name: '消费者贷款' },
+          { value:parseInt((Math.random() * 1000).toString()), name: '活期贷款' },
+          { value: parseInt((Math.random() * 1000).toString()), name: '定期贷款' },
+    
+        ];
+        x(newData);
+      }, 2000);
+    }, []);
+    const x = (data) => {
+            myChart.current.setOption(createEchartOptions({
     ...baseChartshare,
     xAxis: {show: false},
     yAxis: {show: false},
@@ -40,13 +60,7 @@ export const Chart_8 = () =>{
               return options.value/10 + '%';
             }
           },
-          data: [
-            { value: 1048, name: '工商业贷款' },
-            { value: 735, name: '农业贷款' },
-            { value: 580, name: '消费者贷款' },
-            { value: 484, name: '活期贷款' },
-            { value: 300, name: '定期贷款' }
-          ],
+          data: data,
           emphasis: {
             itemStyle: {
               shadowBlur: 10,
@@ -57,7 +71,11 @@ export const Chart_8 = () =>{
         }
       ]
     })
-    )},[])
+    )}
+    useEffect(() => {
+      myChart.current = echarts.init(divRef.current);
+      x(data);
+    }, []);
  return (
  
     <div className='border typeTotal'>

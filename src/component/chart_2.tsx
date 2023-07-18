@@ -7,9 +7,31 @@ const px = (n) => n/2420 * (window as any).PageWidth
 
 export const Chart_2 = () =>{
     const divRef = useRef(null)
+    const myChart = useRef(null);
+    const data = [
+      {name: '综合业务通过率', 2022: 55, 2023: 98},
+      {name: '银行征信通过率', 2022: 56, 2023: 94},
+      {name: '社会征信通过率', 2022: 40, 2023: 70},
+      {name: '电审通过率', 2022: 32, 2023: 75},
+      {name: '开卡通过率', 2022: 40, 2023: 90},
+      {name:  '综合逾期通过率', 2022: 45, 2023: 80},
+
+    ];
     useEffect(() =>{
-        var myChart = echarts.init(divRef.current);
-        myChart.setOption(createEchartOptions({
+      setInterval(() => {
+        const newData = [
+        {name: '综合业务通过率', 2022: Math.random() * 100, 2023: Math.random() * 100},
+        {name: '银行征信通过率', 2022: Math.random() * 100, 2023: Math.random() * 100},
+        {name: '社会征信通过率', 2022: Math.random() * 100, 2023: Math.random() * 100},
+        {name: '电审通过率', 2022: Math.random() * 100, 2023: Math.random() * 100},
+        {name: '开卡通过率', 2022: Math.random() * 100, 2023: Math.random() * 100},
+        {name:  '综合逾期通过率', 2022: Math.random() * 100, 2023: Math.random() * 100},
+        ];
+        x(newData);
+      }, 2000);
+    }, []);
+    const x = (data) => {
+            myChart.current.setOption(createEchartOptions({
             ...baseChartshare,
             tooltip: {
                 trigger: 'axis',
@@ -47,7 +69,7 @@ export const Chart_2 = () =>{
               },
               yAxis: {
                 type: 'category',
-                data: ['综合业务通过率', '银行征信通过率', '社会征信通过率', '电审通过率', '开卡通过率', '综合逾期通过率'],
+                data:data.map(i => i.name),
                 splitLine:{show:false},
                 axisTick: {show: false},
               },
@@ -55,7 +77,7 @@ export const Chart_2 = () =>{
                 {
                   name: '2023',
                   type: 'bar',
-                  data: [56 ,80 ,78 ,65 ,77 ,49],
+                  data: data.map(i => i[2023]),
                   backgroundStyle: {
                     color: 'rgba(180, 180, 180, 0.2)'
                   },
@@ -87,7 +109,7 @@ export const Chart_2 = () =>{
                 {
                   name: '2022',
                   type: 'bar',
-                  data: [87 ,26 ,36 ,54 ,67 ,28],
+                  data: data.map(i => i[2022]),
                   itemStyle: { 
                     color: {
                       type: 'linear',
@@ -117,8 +139,11 @@ export const Chart_2 = () =>{
         }))
 
         
-        
-    },[])
+    }
+    useEffect(() => {
+      myChart.current = echarts.init(divRef.current);
+      x(data);
+    }, []);
  return (
  
     <div className='border billsTotal'>

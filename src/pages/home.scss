@@ -95,6 +95,7 @@
         box-shadow: 0 0 2px 0 #0e325f, inset 0 0 2px 0 #0e325f;
         background: #0f113a;
         &::before{
+            pointer-events: none;
             content:''; //一定要写content为''
             top: 0;
             bottom: 0;
@@ -192,6 +193,12 @@
             position: relative;width: 100%;flex: 1;
             display: flex; flex-direction: column;
             .chart {flex: 1;}
+            .notes {
+              position: absolute;
+              bottom: px(10);
+              right: px(10);
+              font-size: px(10);
+            }
 
           }
         }

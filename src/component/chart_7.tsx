@@ -7,9 +7,32 @@ const px = (n) => n/2420 * (window as any).PageWidth
 
 export const Chart_7 = () =>{
     const divRef = useRef(null)
+    const myChart = useRef(null);
+    const data = [
+      { value: 40, name: '小型车' },
+      { value: 38, name: '中等车型' },
+      { value: 32, name: ' 高级车型' },
+      { value: 30, name: 'CDV车型' },
+      { value: 28, name: 'SUV车型' },
+      { value: 26, name: '三厢车型' },
+
+    ];
     useEffect(() =>{
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(createEchartOptions({
+      setInterval(() => {
+        const newData = [
+          { value: parseInt((Math.random() * 100).toString()), name: '小型车' },
+          { value:parseInt((Math.random() * 100).toString()), name: '中等车型' },
+          { value: parseInt((Math.random() * 100).toString()), name: ' 高级车型' },
+          { value:parseInt((Math.random() * 100).toString()), name: 'CDV车型' },
+          { value: parseInt((Math.random() * 100).toString()), name: 'SUV车型' },
+          { value: parseInt((Math.random() * 100).toString()), name: '三厢车型' },
+    
+        ];
+        x(newData);
+      }, 2000);
+    }, []);
+    const x = (data) => {
+            myChart.current.setOption(createEchartOptions({
     ...baseChartshare,
     xAxis: {show: false},
     yAxis: {show: false},
@@ -43,19 +66,15 @@ export const Chart_7 = () =>{
           itemStyle: {
             borderRadius: 8
           },
-          data: [
-            { value: 40, name: '小型车' },
-            { value: 38, name: '中等车型' },
-            { value: 32, name: ' 高级车型' },
-            { value: 30, name: 'CDV车型' },
-            { value: 28, name: 'SUV车型' },
-            { value: 26, name: '三厢车型' },
-
-          ]
+          data: data
         }
       ]
     })
-    )},[])
+    )} 
+    useEffect(() => {
+      myChart.current = echarts.init(divRef.current);
+      x(data);
+    }, []);
  return (
  
     <div className='border eleTotal'>
